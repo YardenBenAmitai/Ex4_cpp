@@ -30,8 +30,11 @@ void SmartGuesser::startNewGame(unsigned int len){
 
 
 string SmartGuesser::guess() {
+	if(this->MyList.size()<=0){
+		return "";
+	}
 	list<string>::iterator it = this->MyList.begin();
-	advance(it, rand()% (this->MyList.size() + 1));
+	advance(it, rand()%this->MyList.size() + 1);
 	string MyGuess= *it;
 	this->LastGuess= *it;
 	return MyGuess;

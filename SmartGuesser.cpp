@@ -26,7 +26,6 @@ void SmartGuesser::startNewGame(unsigned int len){
 		this->MyList.push_back(NumToList);
 	}
 	
-	cout<<"a new game starts now"<<endl;
 }
 
 

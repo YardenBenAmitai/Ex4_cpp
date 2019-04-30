@@ -15,7 +15,7 @@ void SmartGuesser::startNewGame(unsigned int len){
 	int ListLength=10;
 	
 	for(int i=0; i<length; i++){
-		ListLength = ListLength * ListLength;
+		ListLength = ListLength * length;
 	}
 	
 	for(int i=ListLength/10; i<ListLength; i++){

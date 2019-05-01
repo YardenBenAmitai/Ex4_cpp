@@ -24,47 +24,46 @@ void SmartGuesser::startNewGame(unsigned int len){
 		string s(len - to_string(j).length() , '0');
 		s=s+to_string(j);
 		this->MyList.push_back(s);
-		cout<<(s)<<" ";
 	}
-	cout<<endl;
 }
 
 
 string SmartGuesser::guess() {
 	if(this->MyList.size() <=0){
 		return "";
-	} 
-	
-	list<string>::iterator it = this->MyList.begin();
-	if(this->MyList.size()==1){
-		return *it;
+	} else if (this->MyList.size()==1){
+		return *(this->MyList.begin());
+	} else{
+		list<string>::iterator it = this->MyList.begin();
+		srand(time(0));
+		advance(it, rand() % this->MyList.size());
+		string MyGuess= *it;
+		this->LastGuess= *it;
+		return MyGuess;
 	}
-	advance(it, rand() % this->MyList.size());
-	string MyGuess= *it;
-	this->LastGuess= *it;
-	return MyGuess;
 }
 
 
 void SmartGuesser::learn(string s) {
 	pair <int, int> p= stringToPair(s);
-	pair <int, int> guess;
 	list<string>::iterator ite = this->MyList.begin();
-	while(ite != this->MyList.end()){
-		guess=stringToPair(calculateBullAndPgia(LastGuess, *ite));
-		if (guess != p){
+	for (auto ite = this->MyList.begin(); ite!=this->MyList.end(); ite++){
+		if (stringToPair(calculateBullAndPgia(LastGuess, *ite)) != p){
 			ite = this->MyList.erase(ite);
-		} else{
-			++ite;
 		}
 	}
+	//for (auto it = this->MyList.begin(); ite!=this->MyList.end(); ite++){
+	//	cout<<*it<<" ";
+	//}
+	//cout<<endl;
 }
-	
+
+
 pair<int, int> SmartGuesser::stringToPair(string s){
-	string delimiter = ",";
-	string bull = s.substr(0, s.find(delimiter));
-	bull.erase(0,s.find(delimiter));
+	string bull = s.substr(0, s.find(","));
+	bull.erase(0,s.find(","));
 	string pgia=s;
+	
 	stringstream sb(bull);
 	stringstream sp(pgia);
 	pair <int, int> p;

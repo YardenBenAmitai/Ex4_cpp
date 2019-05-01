@@ -52,8 +52,8 @@ void SmartGuesser::learn(string s) {
 			ite = this->MyList.erase(ite);
 		}
 	}
-	//for (auto it = this->MyList.begin(); ite!=this->MyList.end(); ite++){
-	//	cout<<*it<<" ";
+	//for (auto ite = this->MyList.begin(); ite!=this->MyList.end(); ite++){
+	//	cout<<*ite<<" ";
 	//}
 	//cout<<endl;
 }

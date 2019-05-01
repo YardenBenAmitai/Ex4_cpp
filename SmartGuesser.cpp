@@ -11,7 +11,7 @@
 using namespace std;
 
 void SmartGuesser::startNewGame(unsigned int len){
-	cout<<"start new game"<<endl;
+	cout<<"start new game with len "<<len<<endl;
 	length=len;
 	int ListLength=1;
 	
@@ -54,11 +54,9 @@ string SmartGuesser::guess() {
 void SmartGuesser::learn(string s) {
 	cout<<"start learn"<<endl;
 	pair <int, int> p= stringToPair(s);
-	pair <int, int> guess;
 	list<string>::iterator ite = this->MyList.begin();
 	while(ite != this->MyList.end()){
-		guess=stringToPair(calculateBullAndPgia(LastGuess, *ite));
-		if (guess.first != p.first || guess.second != p.second){
+		if (stringToPair(calculateBullAndPgia(LastGuess, *ite)) != p){
 			ite = this->MyList.erase(ite);
 		} else{
 			++ite;

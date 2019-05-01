@@ -64,8 +64,8 @@ int main() {
 
 		
 		.CHECK_EQUAL(play(cc1, rg, 0, 1), 1)              		//guesser wins in one turn
-		.CHECK_EQUAL(play(cc2, sg, 4, 6) <=5, true)          //smart guesser deduce the number in under 6 turns.
-		.CHECK_EQUAL(play(rc, sg, 6, 100)<=50, true)		//smart guesser guesses correctly under 50 tries.
+		.CHECK_EQUAL(play(cc2, sg, 4, 100) <=12, true)          //smart guesser deduce the number in under 6 turns.
+		.CHECK_EQUAL(play(rc, sg, 6, 100)<=20, true)		//smart guesser guesses correctly under 50 tries.
 		;
 		
 		grade = testcase.grade();

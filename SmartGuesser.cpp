@@ -19,15 +19,13 @@ void SmartGuesser::startNewGame(unsigned int len){
 		ListLength = ListLength * 10;
 	}
 	
-	for(int j=0; j<ListLength/10; j++){
+	for(int j=0; j<ListLength; j++){
 		string s(len - to_string(j).length() , '0');
-		this->MyList.push_back(s+to_string(j));
+		s=s+to_string(j);
+		this->MyList.push_back(s);
+		cout<<s<<" ";
 	}
-	for(int i=ListLength/10; i<ListLength; i++){
-		ostringstream oss;
-		oss << i;
-		this->MyList.push_back(oss.str());
-	}
+	cout<<endl;
 }
 
 
@@ -58,6 +56,11 @@ void SmartGuesser::learn(string s) {
 		} else{
 			++ite;
 		}
+	}
+	list<string>::iterator it = this->MyList.begin();
+	while(ite != this->MyList.end()){
+		cout<<*it<<" ";
+		++it;
 	}
 	cout<<"end learn"<<endl;
 }

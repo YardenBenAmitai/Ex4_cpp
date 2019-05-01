@@ -28,12 +28,10 @@ void SmartGuesser::startNewGame(unsigned int len){
 		oss << i;
 		this->MyList.push_back(oss.str());
 	}
-	cout<<"end new game"<<endl;
 }
 
 
 string SmartGuesser::guess() {
-	cout<<"start guess"<<endl;
 	if(this->MyList.size() <=0){
 		return "";
 	} 
@@ -46,13 +44,12 @@ string SmartGuesser::guess() {
 	advance(it, rand() % this->MyList.size());
 	string MyGuess= *it;
 	this->LastGuess= *it;
-	cout<<"end guess"<<endl;
 	return MyGuess;
 }
 
 
 void SmartGuesser::learn(string s) {
-	cout<<"start learn"<<endl;
+	cout<<"start learn with "<<s<<endl;
 	pair <int, int> p= stringToPair(s);
 	list<string>::iterator ite = this->MyList.begin();
 	while(ite != this->MyList.end()){

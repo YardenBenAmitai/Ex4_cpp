@@ -25,7 +25,6 @@ int main() {
 	int grade=0;
 	int signal = setjmp(badkan::longjmp_buffer);
 	if (signal == 0) {
-		cout<<"begining of test"<<endl;
 		// BASIC TESTS - DO NOT CHANGE
 		ConstantChooser c1234{"1234"}, c12345{"12345"}, c9999{"9999"};
 		ConstantGuesser g1234{"1234"}, g12345{"12345"}, g9999{"9999"};

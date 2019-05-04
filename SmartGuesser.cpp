@@ -63,34 +63,25 @@ void SmartGuesser::learn(string s) {
 	//cout<<"learn from "<<s<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
-	if (this->FirstTurn>=2 || (p.first==0 && this->FirstTurn<2)){
-		if(this->FirstTurn<2 && this->length>2 && p.first==0){
+	if (this->FirstTurn>=1 || (p.first==0 && this->FirstTurn<1)){
+		if(this->FirstTurn<1){
 			ClearList(p);
-			//cout<<this->MyList.size()<<endl;
 		}
-		else {
-			auto ite = this->MyList.begin();
-			while ( ite != this->MyList.end()){
-				curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
-				//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;
-				if ( curr.first != p.first || curr.second != p.second){
-					ite = this->MyList.erase(ite);
-				}
-				else
-					++ite;
-			}
+		auto ite = this->MyList.begin();
+		while ( ite != this->MyList.end()){
+			curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
+			//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;
+			if ( curr.first != p.first || curr.second != p.second){
+				ite = this->MyList.erase(ite);
+			} else
+				++ite;
 		}
 	}
 }
 
 void SmartGuesser::ClearList(pair<int, int> p){
 	++(this->FirstTurn);
-	//auto ite = this->MyList.begin();
-	//while ( ite != this->MyList.end()){
-	//	cout<<*ite<<" ";
-	//	++ite;
-	//}
-	//cout<<"clearlist"<<endl;
+	if(this->length >2){
 		auto ite=this->MyList.begin();
 		while(ite!=this->MyList.end()){
 			if ((*ite)[0]==this->LastGuess[0]){
@@ -101,7 +92,7 @@ void SmartGuesser::ClearList(pair<int, int> p){
 					advance (ite2, pow(10,length-1));
 				
 				ite= this->MyList.erase(ite, ite2);
-			/**} else if((*ite)[1]==this->LastGuess[1]){
+			} else if((*ite)[1]==this->LastGuess[1]){
 				auto ite2=ite;
 				if((*ite)[1]=='9' && (*ite)[0]=='9'){
 					ite2=this->MyList.end();
@@ -115,19 +106,11 @@ void SmartGuesser::ClearList(pair<int, int> p){
 				} else
 					advance (ite2, pow(10,length-3));
 				ite=this->MyList.erase(ite, ite2);
-			**/} else{
+			} else{
 				++ite;
 			}
 		}
-//cout<<"done clear list"<<endl;		
-	
-	//auto ite1 = this->MyList.begin();
-	//while(ite1!=this->MyList.end()){
-	//	cout<<*ite1<<" ";
-	//	++ite1;
-	//}
-	//cout<<endl;
-	//cout<<endl;
+	}
 }
 
 

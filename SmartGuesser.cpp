@@ -13,7 +13,7 @@
 using namespace std;
 
 void SmartGuesser::startNewGame(unsigned int len){
-	cout<<"smart guesser new game"<<endl;
+	cout<<"smart guesser new game with length "<<len<<endl;
 	length=len;
 	int ListLength=1;
 	
@@ -25,9 +25,9 @@ void SmartGuesser::startNewGame(unsigned int len){
 		string s(len - to_string(j).length() , '0');
 		s=s+to_string(j);
 		this->MyList.push_back(s);
-		//cout<<(s)<<" ";
+		if(len=2){cout<<(s)<<" ";}
 	}
-	//cout<<endl;
+	cout<<endl;
 }
 
 

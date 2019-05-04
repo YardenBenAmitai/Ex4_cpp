@@ -5,11 +5,8 @@
 #include<bits/stdc++.h> 
 #include <stdlib.h>
 #include <string>
-#include <iostream>
 #include <sstream>
 #include <iterator>
-#include<cstdlib>
-#include<ctime>
 
 using namespace std;
 
@@ -56,21 +53,36 @@ string SmartGuesser::guess() {
 	}
 }
 
-
+/**
+learn method receives a string in the form of "x,y" (bull,pgia).
+if its the first run in a new game then the method will look for "0,y" so it could eliminate a larg number of elements from the pool at once,
+otherwise it will do nothing.
+if it is not the first run then method proceeds with a partial knuth's "five-steps" algorithm,
+where the last guess is compared to every element in the pool and must produce the same form as the given string, otherwise it is eliminated.
+**/
 void SmartGuesser::learn(string s) {
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
-	auto ite = this->MyList.begin();
-	while ( ite != this->MyList.end()){
-		curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
-		if ( curr.first != p.first || curr.second != p.second){
-			ite = this->MyList.erase(ite);
-		} else
-			++ite;
+	if (this->FirstTurn>=1 || (p.first==0 && this->FirstTurn<1)){
+		if(this->FirstTurn<1 && this->length>2 && p.first==0){
+			ClearList(p);
+		}
+		auto ite = this->MyList.begin();
+		while ( ite != this->MyList.end()){
+			curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
+			if ( curr.first != p.first || curr.second != p.second){
+				ite = this->MyList.erase(ite);
+			} else
+				++ite;
+		}
 	}
 }
 
-void SmartGuesser::ClearList(pair<int, int> p){
+/**
+private:
+the method clears the initial pool with accordance to the last guess, assuming the comparison resulted in "0,y"
+**/
+void SmartGuesser::ClearList(){
 	++(this->FirstTurn);
 	if(this->length >2){
 		auto ite=this->MyList.begin();
@@ -104,7 +116,11 @@ void SmartGuesser::ClearList(pair<int, int> p){
 	}
 }
 
-
+/**
+private:
+the method receives a string in the form of "x,y" and returns a pair of <int, int>
+such that <x,y>
+**/
 pair<int, int> SmartGuesser::stringToPair(string s){
 	string bull = s.substr(0, s.find(","));
 	s.erase(0,s.find(",")+1);

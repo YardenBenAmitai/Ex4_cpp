@@ -65,7 +65,7 @@ void SmartGuesser::learn(string s) {
 	pair <int, int> curr; 
 	int looped=0;
 	//cout<<"my list size i "<<this->MyList.size()<<endl;
-	string::iterator ite = this->MyList.begin();
+	auto ite = this->MyList.begin();
 	while (ite != this->MyList.end()){
 		looped++;
 		cout<<looped<<" ";

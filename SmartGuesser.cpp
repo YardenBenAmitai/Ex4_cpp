@@ -39,7 +39,7 @@ string SmartGuesser::guess() {
 		return "";
 	} else if(this->MyList.size()==1){
 		this->LastGuess = *(this->MyList.begin());
-		cout<<"my guess "<<this->LastGuess<<endl;
+		cout<<"my guess ==1 "<<this->LastGuess<<endl;
 		return *(this->MyList.begin());
 	} else{
 		list<string>::iterator it = this->MyList.begin();
@@ -47,7 +47,7 @@ string SmartGuesser::guess() {
 		advance(it, rand() % this->MyList.size());
 		string MyGuess= *it;
 		this->LastGuess= *it;
-		cout<<"my guess "<<MyGuess<<endl;
+		cout<<"my guess main "<<MyGuess<<endl;
 		return MyGuess;
 	}
 }

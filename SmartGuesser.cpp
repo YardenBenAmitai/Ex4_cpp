@@ -97,7 +97,10 @@ void SmartGuesser::ClearList(pair<int, int> p){
 				cout<<endl;
 			} else if((*ite)[1]==this->LastGuess[1]){
 				auto ite2=ite;
-				advance (ite2, pow(10,length-2));
+				if((*ite)[1]=='9' && (*ite)[0]=='9'){
+					ite2=this->MyList.end();
+				} else
+					advance (ite2, pow(10,length-2));
 				ite=this->MyList.erase(ite, ite2);
 			} else{
 				++ite;

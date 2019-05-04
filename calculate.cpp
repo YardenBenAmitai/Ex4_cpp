@@ -10,16 +10,13 @@ string calculateBullAndPgia(string choise, string guess){
 		unsigned int i, j;
 		
 		bull=0;
-		i=0;
 		//while loop calculates how many bull-s there are and then erase them so they would not be calculated twice.
-		while ( i < choise.length() ){ 
+		for (i=0; i < choise.length(); i++ ){ 
 			if(choise[i]==guess[i]){
 				bull++;
 				choise.erase (i, 1);
 				guess.erase (i, 1);
 			}
-			else 
-				i++;
 		}
 		
 		
@@ -31,7 +28,7 @@ string calculateBullAndPgia(string choise, string guess){
 					pgia++;
 					choise.erase (i, 1);
 					guess.erase (j, 1);
-					i--; j--;
+					--i; --j;
 				}
 			}
 		}

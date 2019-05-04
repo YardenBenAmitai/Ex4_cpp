@@ -90,7 +90,7 @@ void SmartGuesser::ClearList(pair<int, int> p){
 				} else
 					advance (ite2, pow(10,length-1));
 				
-				cout<<"here ite="<<*ite<<" ite2="<<*ite2<<endl;
+				//cout<<"here ite="<<*ite<<" ite2="<<*ite2<<endl;
 				ite= this->MyList.erase(ite, ite2);
 				cout<<"here"<<endl;
 				cout<<endl;

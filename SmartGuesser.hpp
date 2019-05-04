@@ -16,11 +16,15 @@ class SmartGuesser: public bullpgia::Guesser {
 	string guess() override;
 	void learn(string) override;
 	void startNewGame(unsigned int len) override;
+	
+	private:
 	pair<int, int> stringToPair(string);
+	void ClearList(pair<int,int>);
 	
 	protected:
 	list<string> MyList;
 	string LastGuess;
+	int FirstTurn;
 };
 
 #endif

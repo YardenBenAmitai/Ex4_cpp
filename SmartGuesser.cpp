@@ -64,8 +64,8 @@ void SmartGuesser::learn(string s) {
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
 	if (this->FirstTurn>=1 || (p.first==0 && this->FirstTurn<1)){
-		if(this->FirstTurn<1 && this->length>2 && p.first==0){
-			ClearList(p);
+		if(this->FirstTurn<1 && this->length>2){
+			ClearList();
 		}
 		auto ite = this->MyList.begin();
 		while ( ite != this->MyList.end()){

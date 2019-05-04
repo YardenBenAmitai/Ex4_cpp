@@ -80,16 +80,16 @@ void SmartGuesser::learn(string s) {
 void SmartGuesser::ClearList(pair<int, int> p){
 	this->FirstTurn=1;
 	if(p.first==0 && length>2){
-		auto ite2, ite=this->MyList.begin();
+		auto ite=this->MyList.begin();
 		while(ite!=this->MyList.end()){
 			if ((*ite)[0]==this->LastGuess[0]){
-				ite2=ite;
+				auto ite2=ite;
 				advance (ite2, 10*(length-1));
 				cout<<"here"<<endl;
 				ite= this->MyList.erase(ite, ite2);
 				cout<<"here"<<endl;
 			} else if((*ite)[1]==this->LastGuess[1]){
-				ite2=ite;
+				auto ite2=ite;
 				advance (ite2, 10*(length-2));
 				ite=this->MyList.erase(ite, ite2);
 			} else{

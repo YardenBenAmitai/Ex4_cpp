@@ -68,7 +68,7 @@ void SmartGuesser::learn(string s) {
 		if ( curr.first != p.first || curr.second != p.second){
 			ite = this->MyList.erase(ite);
 			erased++;
-			--ite;
+			ite--;
 		}
 	}
 	cout<<" erased "<<erased<<endl;

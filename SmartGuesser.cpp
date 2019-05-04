@@ -65,6 +65,7 @@ void SmartGuesser::learn(string s) {
 	auto ite = this->MyList.begin();
 	while(ite!=this.MyList.end()){
 		cout<<*ite<<" ";
+		++ite;
 	}
 	cout<<endl;
 	ite=this->MyList.begin();
@@ -82,7 +83,7 @@ void SmartGuesser::learn(string s) {
 
 void SmartGuesser::ClearList(pair<int, int> p){
 	this->FirstTurn=1;
-	if(p.first==0 && length>1){
+	if(p.first==0 && length>2){
 		auto ite=this->MyList.begin();
 		while(ite!=this->MyList.end()){
 			if ((*ite)[0]==this->LastGuess[0]){

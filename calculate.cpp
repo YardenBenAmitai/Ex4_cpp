@@ -27,7 +27,7 @@ string calculateBullAndPgia(string choise, string guess){
 	i=0;
 		//two for loops calculate how many pgia-s there are and then erase them.
 		while (i<choise.length()){
-			j=0
+			j=0;
 			while( j<guess.length() && i<choise.length()){
 				if(choise[i]==guess[j]){
 					pgia++;

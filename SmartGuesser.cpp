@@ -26,11 +26,9 @@ void SmartGuesser::startNewGame(unsigned int len){
 		string s(len - to_string(j).length() , '0');
 		s=s+to_string(j);
 		this->MyList.push_back(s);
-		if(len==2){
-			cout<<(s)<<" ";
-		}
+		//cout<<(s)<<" ";
 	}
-	cout<<endl;
+	//cout<<endl;
 }
 
 
@@ -44,7 +42,7 @@ string SmartGuesser::guess() {
 	//	return *(this->MyList.begin());
 	}else{
 		list<string>::iterator it = this->MyList.begin();
-		//srand(time(0));
+		srand(time(0));
 		advance(it, rand() % this->MyList.size());
 		string MyGuess= *it;
 		this->LastGuess= *it;
@@ -67,10 +65,10 @@ void SmartGuesser::learn(string s) {
 			--ite;
 		}
 	}
-	for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
-		cout<<*ite<<" ";
-	}
-	cout<<endl;
+	//for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
+	//	cout<<*ite<<" ";
+	//}
+	//cout<<endl;
 }
 	
 pair<int, int> SmartGuesser::stringToPair(string s){

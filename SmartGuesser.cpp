@@ -77,7 +77,7 @@ void SmartGuesser::learn(string s) {
 	//		cout<<*ite<<" ";
 	//	}
 	//	cout<<endl;
-	}//
+	//}
 }
 	
 pair<int, int> SmartGuesser::stringToPair(string s){

@@ -65,10 +65,12 @@ void SmartGuesser::learn(string s) {
 			--ite;
 		}
 	}
-	//for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
-	//	cout<<*ite<<" ";
-	//}
-	//cout<<endl;
+	if(len==4){
+		for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
+			cout<<*ite<<" ";
+		}
+		cout<<endl;
+	}
 }
 	
 pair<int, int> SmartGuesser::stringToPair(string s){

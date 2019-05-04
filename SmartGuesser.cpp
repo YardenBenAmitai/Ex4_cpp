@@ -47,7 +47,7 @@ string SmartGuesser::guess() {
 		advance(it, rand() % this->MyList.size());
 		string MyGuess= *it;
 		this->LastGuess= *it;
-		cout<<"last guess "<<*LastGuess<<endl;
+		cout<<"last guess "<<*(this->LastGuess)<<endl;
 		cout<<"my guess "<<MyGuess<<endl;
 		return MyGuess;
 	}

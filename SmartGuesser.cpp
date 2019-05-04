@@ -13,6 +13,7 @@
 using namespace std;
 
 void SmartGuesser::startNewGame(unsigned int len){
+	cout<<"smart guesser new game"<<endl;
 	length=len;
 	int ListLength=1;
 	
@@ -31,6 +32,7 @@ void SmartGuesser::startNewGame(unsigned int len){
 
 
 string SmartGuesser::guess() {
+	cout<<"smart guesser guess"<<endl;
 	if(this->MyList.size() <=0){
 		return "";
 	} else if(this->MyList.size()==1){
@@ -50,6 +52,7 @@ string SmartGuesser::guess() {
 
 
 void SmartGuesser::learn(string s) {
+	cout<<"smart guesser learn"<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
 	
@@ -68,6 +71,7 @@ void SmartGuesser::learn(string s) {
 }
 	
 pair<int, int> SmartGuesser::stringToPair(string s){
+	cout<<"smart guesser string to pair"<<endl;
 	string bull = s.substr(0, s.find(","));
 	s.erase(0,s.find(",")+1);
 	string pgia=s;

@@ -60,8 +60,8 @@ void SmartGuesser::learn(string s) {
 	cout<<"learn from "<<s<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
-	if((this->FirstTurn==0 && p.first==0) || this->FirstTurn!=0){
-		if(this->FirstTurn==0){
+	if((this->FirstTurn<2 && p.first==0) || this->FirstTurn>=2){
+		if(this->FirstTurn<2){
 			ClearList(p);
 			cout<<this->MyList.size()<<endl;
 		}
@@ -85,7 +85,7 @@ void SmartGuesser::learn(string s) {
 }
 
 void SmartGuesser::ClearList(pair<int, int> p){
-	this->FirstTurn=1;
+	this->FirstTurn++;
 	if(p.first==0 && length>2){
 		cout<<"inside clearlist"<<endl;
 		auto ite=this->MyList.begin();

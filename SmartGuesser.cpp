@@ -63,18 +63,20 @@ void SmartGuesser::learn(string s) {
 	cout<<"smart guesser learn from "<<s<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
-	//int looped=0;
+	int looped=0;
 	//cout<<"my list size i "<<this->MyList.size()<<endl;
-	auto ite = this->MyList.begin();
+	string::iterator ite = this->MyList.begin();
 	while (ite != this->MyList.end()){
-		curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
+		looped++;
+		cout<<looped<<" ";
+		curr=stringToPair(calculateBullAndPgia(this->LastGuess, *ite));
 		if ( curr.first != p.first || curr.second != p.second){
 			ite = this->MyList.erase(ite);
 		}
 		else
 			++ite;
 	}
-	//cout<<"looped "<<looped<<endl;
+	cout<<"looped "<<endl;
 	
 }
 	

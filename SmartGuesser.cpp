@@ -65,7 +65,7 @@ void SmartGuesser::learn(string s) {
 			ClearList(p);
 		}
 		
-		//cout<<endl;
+		cout<<this->MyList.size()<<endl;
 		auto ite=this->MyList.begin();
 		while ( ite != this->MyList.end()){
 			curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
@@ -90,11 +90,7 @@ void SmartGuesser::ClearList(pair<int, int> p){
 					ite2=this->MyList.end();
 				} else
 					advance (ite2, pow(10,length-1));
-				
-				//cout<<"here ite="<<*ite<<" ite2="<<*ite2<<endl;
 				ite= this->MyList.erase(ite, ite2);
-				cout<<"here"<<endl;
-				cout<<endl;
 			} else if((*ite)[1]==this->LastGuess[1]){
 				auto ite2=ite;
 				if((*ite)[1]=='9' && (*ite)[0]=='9'){

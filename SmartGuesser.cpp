@@ -15,7 +15,7 @@ using namespace std;
 void SmartGuesser::startNewGame(unsigned int len){
 	cout<<"smart guesser new game with length "<<len<<endl;
 	this->length=len;
-	this->MyList.clear();
+	(this->MyList).clear();
 	int ListLength=1;
 	
 	for(unsigned int i=0; i<this->length; i++){
@@ -28,6 +28,7 @@ void SmartGuesser::startNewGame(unsigned int len){
 		this->MyList.push_back(s);
 		//cout<<(s)<<" ";
 	}
+	cout<<"end of new game with length "<<this->MyList.size()<<endl;
 	//cout<<endl;
 	//if(this->length==4){
 	//	for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
@@ -39,6 +40,7 @@ void SmartGuesser::startNewGame(unsigned int len){
 
 
 string SmartGuesser::guess() {
+	cout<<"smart guesser guess"<<endl;
 	if(this->MyList.size() ==0){
 		return "";
 	} else if(this->MyList.size()==1){

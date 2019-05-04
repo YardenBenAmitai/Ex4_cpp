@@ -61,25 +61,27 @@ void SmartGuesser::learn(string s) {
 	cout<<"smart guesser learn"<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
-	int looped=0;
-	cout<<"my list size i "<<this->MyList.size()<<endl;
+	//int looped=0;
+	//cout<<"my list size i "<<this->MyList.size()<<endl;
 	for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ++ite){
-		looped++;
+		//looped++;
 		curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
-		cout<<"my list size o "<<this->MyList.size()<<endl;
+		//cout<<"my list size o "<<this->MyList.size()<<endl;
 		//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;
 		if ( curr.first != p.first || curr.second != p.second){
 			ite = this->MyList.erase(ite);
 			--ite;
 		}
+		if(this->length==4 && this->MyList.size() < 200){
+		for (auto it = this->MyList.begin(); it != this->MyList.end(); ++it){
+			cout<<*ite<<" ";
+		}
+		cout<<endl;
 	}
-	cout<<"looped "<<looped<<endl;
-	//if(this->length==4){
-	//	for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
-	//		cout<<*ite<<" ";
-	//	}
-	//	cout<<endl;
-	//}
+		
+	}
+	//cout<<"looped "<<looped<<endl;
+	
 }
 	
 pair<int, int> SmartGuesser::stringToPair(string s){

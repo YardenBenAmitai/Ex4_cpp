@@ -68,10 +68,12 @@ void SmartGuesser::learn(string s) {
 	auto ite = this->MyList.begin();
 	while (ite != this->MyList.end()){
 		looped++;
-		cout<<looped<<" ";
+		
 		curr=stringToPair(calculateBullAndPgia(this->LastGuess, *ite));
 		if ( curr.first != p.first || curr.second != p.second){
 			ite = this->MyList.erase(ite);
+			if (this->length==4 && looped>9000)
+				cout<<looped<<" ";
 		}
 		else
 			++ite;

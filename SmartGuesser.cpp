@@ -62,8 +62,10 @@ void SmartGuesser::learn(string s) {
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
 	int erased=0;
+	cout<<"my list size i "<<this->MyList.size()<<endl;
 	for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ++ite){
 		curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
+		cout<<"my list size o "<<this->MyList.size()<<endl;
 		//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;
 		if ( curr.first != p.first || curr.second != p.second){
 			ite = this->MyList.erase(ite);

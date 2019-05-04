@@ -5,6 +5,7 @@
 using namespace std;
 
 string calculateBullAndPgia(string choise, string guess){
+	cout<<"calculate between "<<choice<<" "<<guess<<endl;
 		unsigned int bull, pgia;
 		unsigned int i, j;
 		

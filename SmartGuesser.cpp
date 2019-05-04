@@ -14,7 +14,6 @@
 using namespace std;
 
 void SmartGuesser::startNewGame(unsigned int len){
-	//cout<<"new game with "<<len<<endl;
 	this->MyList.clear();
 	this->LastGuess="";
 	this->FirstTurn=0;
@@ -30,14 +29,7 @@ void SmartGuesser::startNewGame(unsigned int len){
 		string s(len - to_string(j).length() , '0');
 		s=s+to_string(j);
 		this->MyList.push_back(s);
-		//cout<<(s)<<" ";
 	}
-	//auto ite = this->MyList.begin();
-	//while(ite!=this->MyList.end()){
-	//	cout<<*ite<<" ";
-	//	++ite;
-	//}
-	//cout<<endl;
 }
 
 
@@ -45,7 +37,6 @@ string SmartGuesser::guess() {
 	if(this->MyList.size() ==0){
 		return "";
 	} else if(this->MyList.size()==1){
-		//cout<<"my guess ==1 "<<this->LastGuess<<endl;
 		return *(this->MyList.begin());
 	} else{
 		list<string>::iterator it = this->MyList.begin();
@@ -53,14 +44,12 @@ string SmartGuesser::guess() {
 		advance(it, rand() % this->MyList.size());
 		string MyGuess= *it;
 		this->LastGuess= *it;
-		//cout<<"my guess "<<MyGuess<<endl;
 		return MyGuess;
 	}
 }
 
 
 void SmartGuesser::learn(string s) {
-	//cout<<"learn from "<<s<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
 	if (this->FirstTurn>=1 || (p.first==0 && this->FirstTurn<1)){
@@ -70,7 +59,6 @@ void SmartGuesser::learn(string s) {
 		auto ite = this->MyList.begin();
 		while ( ite != this->MyList.end()){
 			curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
-			//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;
 			if ( curr.first != p.first || curr.second != p.second){
 				ite = this->MyList.erase(ite);
 			} else

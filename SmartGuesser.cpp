@@ -16,7 +16,7 @@ void SmartGuesser::startNewGame(unsigned int len){
 	cout<<"new game with "<<len<<endl;
 	(this->MyList).clear();
 	this->LastGuess="";
-	this->turns=0;
+	this->FirstTurn=0;
 	this->length=len;
 	
 	int ListLength=1;
@@ -59,7 +59,7 @@ void SmartGuesser::learn(string s) {
 	cout<<"learn"<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
-	if(this->turns==0){
+	if(this->FirstTurn==0){
 		ClearList(p);
 	}
 	auto ite = this->MyList.begin();
@@ -77,7 +77,7 @@ void SmartGuesser::learn(string s) {
 }
 
 void SmartGuesser::ClearList(pair<int, int> p){
-	this->turns=1;
+	this->FirstTurn=1;
 	if(p.first==0 && length>1){
 		auto ite=this->MyList.begin();
 		while(ite!=this->MyList.end()){

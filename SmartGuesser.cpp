@@ -35,19 +35,18 @@ void SmartGuesser::startNewGame(unsigned int len){
 
 string SmartGuesser::guess() {
 	cout<<"smart guesser guess"<<endl;
-	if(this->MyList.size() <=0){
+	if(this->MyList.size() ==0){
 		return "";
-	} else if(this->MyList.size()==1){
-		this->LastGuess = *(this->MyList.begin());
-		cout<<"my guess ==1 "<<this->LastGuess<<endl;
-		return *(this->MyList.begin());
-	} else{
+	//} else if(this->MyList.size()==1){
+	//	this->LastGuess = *(this->MyList.begin());
+	//	cout<<"my guess ==1 "<<this->LastGuess<<endl;
+	//	return *(this->MyList.begin());
+	else{
 		list<string>::iterator it = this->MyList.begin();
-		srand(time(0));
+		//srand(time(0));
 		advance(it, rand() % this->MyList.size());
 		string MyGuess= *it;
 		this->LastGuess= *it;
-		cout<<"last guess "<<this->LastGuess<<endl;
 		cout<<"my guess "<<MyGuess<<endl;
 		return MyGuess;
 	}
@@ -67,10 +66,10 @@ void SmartGuesser::learn(string s) {
 			--ite;
 		}
 	}
-	//for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
-	//	cout<<*ite<<" ";
-	//}
-	//cout<<endl;
+	for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
+		cout<<*ite<<" ";
+	}
+	cout<<endl;
 }
 	
 pair<int, int> SmartGuesser::stringToPair(string s){

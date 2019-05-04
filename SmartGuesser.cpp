@@ -64,7 +64,7 @@ void SmartGuesser::learn(string s) {
 	}
 	
 	cout<<endl;
-	ite=this->MyList.begin();
+	auto ite=this->MyList.begin();
 	while ( ite != this->MyList.end()){
 		curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
 		//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;

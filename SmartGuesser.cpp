@@ -13,7 +13,7 @@
 using namespace std;
 
 void SmartGuesser::startNewGame(unsigned int len){
-	cout<<"new game with "<<len<<endl;
+	cout<<"new game with length of "<<len<<endl;
 	(this->MyList).clear();
 	this->LastGuess="";
 	this->FirstTurn=0;
@@ -36,7 +36,7 @@ void SmartGuesser::startNewGame(unsigned int len){
 
 
 string SmartGuesser::guess() {
-	cout<<"guess"<<endl;
+	//cout<<"guess"<<endl;
 	if(this->MyList.size() <=0){
 		return "";
 	} else if(this->MyList.size()==1){
@@ -56,7 +56,7 @@ string SmartGuesser::guess() {
 
 
 void SmartGuesser::learn(string s) {
-	cout<<"learn"<<endl;
+	cout<<"learn from "<<s<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
 	if(this->FirstTurn==0){

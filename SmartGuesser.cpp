@@ -62,11 +62,7 @@ void SmartGuesser::learn(string s) {
 	if(this->FirstTurn==0){
 		ClearList(p);
 	}
-	auto ite = this->MyList.begin();
-	while(ite!=this->MyList.end()){
-		cout<<*ite<<" ";
-		++ite;
-	}
+	
 	cout<<endl;
 	ite=this->MyList.begin();
 	while ( ite != this->MyList.end()){
@@ -98,6 +94,11 @@ void SmartGuesser::ClearList(pair<int, int> p){
 				++ite;
 			}
 		} 
+		ite = this->MyList.begin();
+	while(ite!=this->MyList.end()){
+		cout<<*ite<<" ";
+		++ite;
+	}
 	}
 }
 

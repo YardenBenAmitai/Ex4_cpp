@@ -58,7 +58,7 @@ string SmartGuesser::guess() {
 
 
 void SmartGuesser::learn(string s) {
-	cout<<"smart guesser learn"<<endl;
+	cout<<"smart guesser learn from "<<s<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
 	//int looped=0;
@@ -72,12 +72,12 @@ void SmartGuesser::learn(string s) {
 			ite = this->MyList.erase(ite);
 			--ite;
 		}
-		if(this->length==4 && this->MyList.size() < 200){
-		for (auto it = this->MyList.begin(); it != this->MyList.end(); ++it){
-			cout<<*it<<" ";
-		}
-		cout<<endl;
-	}
+		//if(this->length==4 && this->MyList.size() < 200){
+		//for (auto it = this->MyList.begin(); it != this->MyList.end(); ++it){
+		//	cout<<*it<<" ";
+		//}
+		//cout<<endl;
+	//}
 		
 	}
 	//cout<<"looped "<<looped<<endl;

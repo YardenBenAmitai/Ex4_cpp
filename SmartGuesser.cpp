@@ -13,6 +13,11 @@
 
 using namespace std;
 
+/**
+starts a new game by first setting all the fields to their initial values
+and then assigning the length for the combinations.
+the method also creates a 'pool' of all the different combinations possible, for method 'learn' to eliminate from.
+**/
 void SmartGuesser::startNewGame(unsigned int len){
 	this->MyList.clear();
 	this->LastGuess="";
@@ -32,7 +37,10 @@ void SmartGuesser::startNewGame(unsigned int len){
 	}
 }
 
-
+/**
+the method chooses a random number ranged from 0 to |pool| (number of elements in pool)
+and advances an iterator, the chosen number of steps and then return that value as the next guess.
+**/
 string SmartGuesser::guess() {
 	if(this->MyList.size() ==0){
 		return "";
@@ -52,18 +60,13 @@ string SmartGuesser::guess() {
 void SmartGuesser::learn(string s) {
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
-	if (this->FirstTurn>=1 || (p.first==0 && this->FirstTurn<1)){
-		if(this->FirstTurn<1){
-			ClearList(p);
-		}
-		auto ite = this->MyList.begin();
-		while ( ite != this->MyList.end()){
-			curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
-			if ( curr.first != p.first || curr.second != p.second){
-				ite = this->MyList.erase(ite);
-			} else
-				++ite;
-		}
+	auto ite = this->MyList.begin();
+	while ( ite != this->MyList.end()){
+		curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
+		if ( curr.first != p.first || curr.second != p.second){
+			ite = this->MyList.erase(ite);
+		} else
+			++ite;
 	}
 }
 

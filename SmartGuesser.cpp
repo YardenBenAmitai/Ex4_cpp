@@ -41,7 +41,7 @@ string SmartGuesser::guess() {
 	//	this->LastGuess = *(this->MyList.begin());
 	//	cout<<"my guess ==1 "<<this->LastGuess<<endl;
 	//	return *(this->MyList.begin());
-	else{
+	}else{
 		list<string>::iterator it = this->MyList.begin();
 		//srand(time(0));
 		advance(it, rand() % this->MyList.size());

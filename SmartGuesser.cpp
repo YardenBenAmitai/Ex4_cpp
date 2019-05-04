@@ -28,7 +28,7 @@ void SmartGuesser::startNewGame(unsigned int len){
 		this->MyList.push_back(s);
 		//cout<<(s)<<" ";
 	}
-	cout<<"end of new game with length "<<this->MyList.size()<<endl;
+	//cout<<"end of new game with length "<<this->MyList.size()<<endl;
 	//cout<<endl;
 	//if(this->length==4){
 	//	for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
@@ -40,7 +40,7 @@ void SmartGuesser::startNewGame(unsigned int len){
 
 
 string SmartGuesser::guess() {
-	cout<<"smart guesser guess"<<endl;
+	//cout<<"smart guesser guess"<<endl;
 	if(this->MyList.size() ==0){
 		return "";
 	} else if(this->MyList.size()==1){

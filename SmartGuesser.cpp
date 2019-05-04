@@ -65,7 +65,7 @@ void SmartGuesser::learn(string s) {
 	pair <int, int> curr; 
 	//int looped=0;
 	//cout<<"my list size i "<<this->MyList.size()<<endl;
-	auto ite = this->MyList.begin()
+	auto ite = this->MyList.begin();
 	while (ite != this->MyList.end()){
 		curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
 		if ( curr.first != p.first || curr.second != p.second){

@@ -60,22 +60,23 @@ void SmartGuesser::learn(string s) {
 	cout<<"learn from "<<s<<endl;
 	pair <int, int> p= stringToPair(s);
 	pair <int, int> curr; 
-	if(this->FirstTurn==0){
-		ClearList(p);
-	}
-	
-	//cout<<endl;
-	auto ite=this->MyList.begin();
-	while ( ite != this->MyList.end()){
-		curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
-		//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;
-		if ( curr.first != p.first || curr.second != p.second){
-			ite = this->MyList.erase(ite);
+	if((this->FirstTurn==0 && p.first==0) || this->FirstTurn!=0){
+		if(this->FirstTurn==0){
+			ClearList(p);
 		}
-		else
-			++ite;
+		
+		//cout<<endl;
+		auto ite=this->MyList.begin();
+		while ( ite != this->MyList.end()){
+			curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
+			//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;
+			if ( curr.first != p.first || curr.second != p.second){
+				ite = this->MyList.erase(ite);
+			}
+			else
+				++ite;
+		}
 	}
-	
 }
 
 void SmartGuesser::ClearList(pair<int, int> p){

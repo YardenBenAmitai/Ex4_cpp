@@ -85,7 +85,7 @@ void SmartGuesser::ClearList(pair<int, int> p){
 		while(ite!=this->MyList.end()){
 			if ((*ite)[0]==this->LastGuess[0]){
 				auto ite2=ite;
-				advance (ite2, pow(10,length-1));
+				advance (ite2, pow(10,length-1)-1);
 				cout<<"here ite="<<*ite<<" ite2="<<*ite2<<endl;
 				ite= this->MyList.erase(ite, ite2);
 				cout<<"here"<<endl;

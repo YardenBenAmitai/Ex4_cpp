@@ -2,6 +2,7 @@
 #include "SmartGuesser.hpp"
 #include "calculate.hpp"
 
+#include<bits/stdc++.h> 
 #include <stdlib.h>
 #include <string>
 #include <iostream>
@@ -84,14 +85,14 @@ void SmartGuesser::ClearList(pair<int, int> p){
 		while(ite!=this->MyList.end()){
 			if ((*ite)[0]==this->LastGuess[0]){
 				auto ite2=ite;
-				advance (ite2, 10*(length-1));
+				advance (ite2, pow(10,length-1));
 				cout<<"here ite="<<*ite<<" ite2="<<*ite2<<endl;
 				ite= this->MyList.erase(ite, ite2);
 				cout<<"here"<<endl;
 				cout<<endl;
 			} else if((*ite)[1]==this->LastGuess[1]){
 				auto ite2=ite;
-				advance (ite2, 10*(length-2));
+				advance (ite2, pow(10,length-2));
 				ite=this->MyList.erase(ite, ite2);
 			} else{
 				++ite;

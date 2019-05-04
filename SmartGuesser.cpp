@@ -29,6 +29,12 @@ void SmartGuesser::startNewGame(unsigned int len){
 		//cout<<(s)<<" ";
 	}
 	//cout<<endl;
+	if(this->length==4){
+		for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
+			cout<<*ite<<" ";
+		}
+		cout<<endl;
+	}
 }
 
 

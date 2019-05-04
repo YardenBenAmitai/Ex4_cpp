@@ -63,9 +63,10 @@ void SmartGuesser::learn(string s) {
 	if((this->FirstTurn==0 && p.first==0) || this->FirstTurn!=0){
 		if(this->FirstTurn==0){
 			ClearList(p);
+			cout<<this->MyList.size()<<endl;
 		}
 		
-		cout<<this->MyList.size()<<endl;
+		
 		auto ite=this->MyList.begin();
 		while ( ite != this->MyList.end()){
 			curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));

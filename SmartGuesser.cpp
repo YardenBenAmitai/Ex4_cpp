@@ -65,7 +65,7 @@ void SmartGuesser::learn(string s) {
 			--ite;
 		}
 	}
-	if(len==4){
+	if(this->length==4){
 		for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ite++){
 			cout<<*ite<<" ";
 		}

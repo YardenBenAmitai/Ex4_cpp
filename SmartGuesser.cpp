@@ -99,6 +99,13 @@ void SmartGuesser::ClearList(pair<int, int> p){
 				} else
 					advance (ite2, pow(10,length-2));
 				ite=this->MyList.erase(ite, ite2);
+			} else if((*ite)[2]==this->LastGuess[2]){
+				auto ite2=ite;
+				if((*ite)[2]=='9' &&(*ite)[1]=='9' && (*ite)[0]=='9'){
+					ite2=this->MyList.end();
+				} else
+					advance (ite2, pow(10,length-3));
+				ite=this->MyList.erase(ite, ite2);
 			} else{
 				++ite;
 			}

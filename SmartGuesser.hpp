@@ -19,7 +19,7 @@ class SmartGuesser: public bullpgia::Guesser {
 	
 	private:
 	pair<int, int> stringToPair(string);
-	void ClearList(pair<int,int>);
+	void ClearList();
 	
 	protected:
 	list<string> MyList;

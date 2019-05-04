@@ -49,7 +49,7 @@ string SmartGuesser::guess() {
 		return *(this->MyList.begin());
 	}else{
 		list<string>::iterator it = this->MyList.begin();
-		srand(time(0));
+		//srand(time(0));
 		advance(it, rand() % this->MyList.size());
 		string MyGuess= *it;
 		this->LastGuess= *it;
@@ -65,22 +65,14 @@ void SmartGuesser::learn(string s) {
 	pair <int, int> curr; 
 	//int looped=0;
 	//cout<<"my list size i "<<this->MyList.size()<<endl;
-	for (auto ite = this->MyList.begin(); ite != this->MyList.end(); ++ite){
-		//looped++;
+	auto ite = this->MyList.begin()
+	while (ite != this->MyList.end()){
 		curr=stringToPair(calculateBullAndPgia(LastGuess, *ite));
-		//cout<<"my list size o "<<this->MyList.size()<<endl;
-		//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;
 		if ( curr.first != p.first || curr.second != p.second){
 			ite = this->MyList.erase(ite);
-			--ite;
 		}
-		//if(this->length==4 && this->MyList.size() < 200){
-		//for (auto it = this->MyList.begin(); it != this->MyList.end(); ++it){
-		//	cout<<*it<<" ";
-		//}
-		//cout<<endl;
-	//}
-		
+		else
+			++ite;
 	}
 	//cout<<"looped "<<looped<<endl;
 	

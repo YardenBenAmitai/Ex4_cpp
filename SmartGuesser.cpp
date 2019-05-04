@@ -85,7 +85,7 @@ void SmartGuesser::ClearList(pair<int, int> p){
 		while(ite!=this->MyList.end()){
 			if ((*ite)[0]==this->LastGuess[0]){
 				auto ite2=ite;
-				if(*ite[0]=="9"){
+				if((*ite)[0]=="9"){
 					advance (ite2, pow(10,length-1)-1);
 				} else
 					advance (ite2, pow(10,length-1));

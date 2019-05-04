@@ -70,7 +70,6 @@ void SmartGuesser::learn(string s) {
 		//cout<<"pair is "<<curr.first<<","<<curr.second<<" for guess and it "<<*ite<<endl;
 		if ( curr.first != p.first || curr.second != p.second){
 			ite = this->MyList.erase(ite);
-			erased++;
 			ite--;
 		}
 	}
